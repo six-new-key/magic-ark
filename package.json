@@ -1,0 +1,29 @@
+{
+  "name": "spring-ai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
+    "@element-plus/icons-vue": "^2.3.1",
+    "ant-design-vue": "^4.2.6",
+    "ant-design-x-vue": "^1.0.6",
+    "dompurify": "^3.2.4",
+    "element-plus": "^2.9.7",
+    "highlight.js": "^11.11.1",
+    "lodash": "^4.17.21",
+    "marked": "^15.0.7",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "unplugin-auto-import": "^19.1.2",
+    "unplugin-vue-components": "^28.4.1",
+    "vite": "^6.2.0"
+  }
+}
