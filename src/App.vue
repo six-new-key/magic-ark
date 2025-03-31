@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-import Chat from "./components/Chat.vue";
 import Layout from "./components/layout/Layout.vue";
 </script>
 

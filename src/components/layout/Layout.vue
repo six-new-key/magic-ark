@@ -1,10 +1,14 @@
 <template>
   <a-layout has-sider>
     <LayoutSider @updateCollapsed="updateCollapsed" />
-    <a-layout :style="{ marginLeft: collapsed ? '64px' : '235px' }">
-      <LayoutHeader />
-      <LayoutContent />
-      <LayoutFooter />
+    <a-layout
+      :style="{
+        marginLeft: collapsed ? '3.0625rem' : '13.75rem',
+      }"
+    >
+      <!-- <LayoutHeader /> -->
+      <LayoutContent :collapsed="collapsed" />
+      <!-- <LayoutFooter /> -->
     </a-layout>
   </a-layout>
 </template>
@@ -16,10 +20,8 @@ import LayoutContent from "./LayoutContent.vue";
 import LayoutFooter from "./LayoutFooter.vue";
 
 const collapsed = ref(false);
-
 // 更新折叠状态的方法
 const updateCollapsed = (val) => {
-  console.log(val);
   collapsed.value = val;
 };
 </script>

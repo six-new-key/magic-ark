@@ -9,6 +9,7 @@
     breakpoint="lg"
     collapsed-width="64"
     v-model:collapsed="collapsed"
+    @collapse="onCollapse"
     :width="235"
     :theme="theme"
     :style="{
@@ -18,8 +19,7 @@
       left: 0,
       top: 0,
       bottom: 0,
-      borderTopRightRadius: '1.25rem',
-      borderBottomRightRadius: '1.25rem',
+      transition: 'none',
     }"
   >
     <div class="sider_container">
@@ -34,12 +34,16 @@
           />
           <img
             v-else
-            src="../../assets/logo2.svg"
+            src="../../assets/ai.svg"
             alt="logo"
             style="width: 2.5rem"
           />
         </div>
-        <div v-if="!collapsed" style="cursor: pointer" @click="handleChangeTheme">
+        <div
+          v-if="!collapsed"
+          style="cursor: pointer"
+          @click="handleChangeTheme"
+        >
           <img
             v-if="theme === 'dark'"
             src="../../assets/sun.svg"
@@ -56,8 +60,12 @@
       </div>
 
       <!-- 侧边栏内容 -->
-      <div class="sider_content">
-        <div style="height: 300vh">我是内容</div>
+      <div
+        class="sider_content"
+        :style="{ color: theme === 'dark' ? '#fff' : '#000' }"
+      >
+        <div style="height: 300vh" v-if="!collapsed">我是未收缩的</div>
+        <div style="height: 300vh" v-else>我是收缩后的内容</div>
       </div>
 
       <!-- 侧边栏底部 -->
@@ -84,10 +92,7 @@
 
 <script setup>
 import { ref } from "vue";
-import {
-  DoubleLeftOutlined,
-  DoubleRightOutlined
-} from "@ant-design/icons-vue";
+import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons-vue";
 
 const emits = defineEmits(["updateCollapsed"]);
 const collapsed = ref(false);
@@ -105,13 +110,18 @@ const changeCollapsed = () => {
 
   emits("updateCollapsed", collapsed.value);
 };
+
+//响应式处理
+const onCollapse = (collapsed) => {
+  emits("updateCollapsed", collapsed);
+};
 </script>
 <style scoped>
 .sider_container {
   width: 100%;
   min-height: 100vh;
   position: relative;
-  color: #fff;
+  border-right: #e8e7e7 solid .0625rem;
 }
 .sider_header {
   max-height: 50px;

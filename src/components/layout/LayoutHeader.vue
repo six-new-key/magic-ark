@@ -5,7 +5,16 @@
  * LayoutHeader.vue
 -->
 <template>
-  <a-layout-header :style="{ background: '#fff', padding: 0 }" />
+  <a-layout-header
+    :style="{
+      background: 'red',
+      margin: '0 1rem',
+      position: 'fixed',
+      zIndex: 1,
+      width: '93%',
+
+    }"
+  >我是头部</a-layout-header>
 </template>
 
 <script setup></script>
